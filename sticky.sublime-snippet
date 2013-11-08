@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+position: -webkit-sticky;
+position: -moz-sticky;
+position: -ms-sticky;
+position: -o-sticky;
+top:0;  
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>sticky</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

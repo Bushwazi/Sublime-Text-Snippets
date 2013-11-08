@@ -1,0 +1,26 @@
+<snippet>
+	<content><![CDATA[
+	CSS Selectors to learn: http://hub.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048
+	X ~ Y --> like X + Y except less strict, will select any Y that follows an X
+	X[href="foo"] --> strict version. must match perfect
+	X[href*="nettuts"] --> broad version. any href with "nettuts" in it at any point
+	X[href^="http"] --> href must start with "http"
+	X[href$=".jpg"] --> href must end with ".jpg"
+	a[data-filetype="image"] --> use custom attributes, not sure why this is better than a class
+	X[foo~="bar"] --> a[data-info~="external"] --> the tilda will look for a match even when the attribute has a space: data-info="external image"
+	X[foo|="bar"] --> like the tilda one, except works with dashes instead of spaces
+	X:not(selector) --> IE9+ :(
+	X::pseudoElement --> p::first-line p::first-paragraph
+	X:nth-child(n) --> IE9+
+	X:nth-last-child(n) --> starts from the last item : IE9+
+	X:nth-of-type(n) --> ul:nth-of-type(6)
+	X:nth-last-of-type(n)
+	X:only-child --> ul li:only-child will select li when it is the only child of an ul
+	X:only-of-type --> li:only-of-type will select an li when it has no siblings
+	X:first-of-type
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>selectors</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

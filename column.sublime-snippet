@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[
+-webkit-column-count: $1;
+-webkit-column-gap:   $2;  
+-moz-column-count:    $1;
+-moz-column-gap:      $2;
+column-count:         $1;
+column-gap:           $2;
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>column</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

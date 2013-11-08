@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[
+	-webkit-transition:$1 $2 $3 $4;
+	-moz-transition:$1 $2 $3 $4;
+	-o-transition:$1 $2 $3 $4;
+	transition:$1 $2 $3 $4;
+	-webkit-transform: translate3d(0,0,0); /* Fixes trails in Chrome */
+	/*
+		linear								==> Specifies a transition effect with the same speed from start to end (equivalent to cubic-bezier(0,0,1,1))
+		ease 									==> Specifies a transition effect with a slow start, then fast, then end slowly (equivalent to cubic-bezier(0.25,0.1,0.25,1))
+		ease-in 	        		==> Specifies a transition effect with a slow start (equivalent to cubic-bezier(0.42,0,1,1))
+		ease-out 							==>	Specifies a transition effect with a slow end (equivalent to cubic-bezier(0,0,0.58,1))
+		ease-in-out 					==>	Specifies a transition effect with a slow start and end (equivalent to cubic-bezier(0.42,0,0.58,1))
+		cubic-bezier(n,n,n,n)	==> Define your own values in the cubic-bezier function. Possible values are numeric values from 0 to 1
+	*/
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>transition</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

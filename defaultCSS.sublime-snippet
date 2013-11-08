@@ -1,0 +1,543 @@
+<snippet>
+	<content><![CDATA[
+
+@charset "UTF-8";
+/*====================----------//////////
+	INDEX
+		I 	:: Setup
+			A :: Normalize or reset
+			B :: Micro Clearfix
+		II 	:: Base (default elements, no classes)
+			A :: webfonts --> font shortkuts
+			B :: General
+		III :: Layout (to house modules)
+			A :: General
+			B :: Header
+			C :: Content
+			D :: Sidebar or other navigation
+			E :: Footer
+		IV 	:: Modules (reusable, modular parts of our design)
+		V 	:: Theme: .theme-background, .theme-border, .font-1, .font-2
+			A :: General
+			B :: shortcuts
+		VI 	:: Media Queries aka state changes 
+\\\\\\\\\\----------====================*/
+
+/*====================----------//////////
+	I :: RESET  (PROPS TO: http://meyerweb.com/eric/tools/css/reset/)
+\\\\\\\\\\----------====================
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+:focus {
+	outline: 0;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 0 none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+.group:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .group             { zoom: 1; }
+*:first-child+html .group { zoom: 1; }
+*/
+/*====================----------//////////
+	I :: Setup || A :: normalize.css v2.1.2 | MIT License | git.io/normalize
+\\\\\\\\\\----------====================*/
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block;
+}
+audio, canvas, video {
+    display: inline-block;
+}
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+[hidden] {
+    display: none;
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    margin: 0;
+}
+a:focus {
+    outline: thin dotted;
+}
+a:active,
+a:hover {
+    outline: 0;
+}
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+b,
+strong {
+    font-weight: bold;
+}
+dfn {
+    font-style: italic;
+}
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+mark {
+    background: #ff0;
+    color: #000;
+}
+code, kbd, pre, samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+pre {
+    white-space: pre-wrap;
+}
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+small {
+    font-size: 80%;
+}
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+img {
+    border: 0;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+figure {
+    margin: 0;
+}
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+legend {
+    border: 0; /* 1 */
+    padding: 0; /* 2 */
+}
+button, input, select, textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 2 */
+    margin: 0; /* 3 */
+}
+button, input {
+    line-height: normal;
+}
+button, select {
+    text-transform: none;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+}
+button[disabled], html input[disabled] {
+    cursor: default;
+}
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+}
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*====================----------//////////
+	I :: Setup || B :: Micro Clear Fix | http://nicolasgallagher.com/micro-clearfix-hack/
+\\\\\\\\\\----------====================*/
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
+/*====================----------//////////
+	II :: Base || A :: webfonts --> font shortkuts
+\\\\\\\\\\----------====================*/
+strong,
+.bold {
+	font-weight:bolder;
+}
+.black {
+	color:#000000;
+}
+.white {
+	color:#FFF;
+}
+.grey {
+	color:#6c6c6c;
+}
+.ltgrey {
+	color:#a1a1a4;
+}
+.darkgrey {
+	color:#515152;
+}
+.orange {
+	color:#e54e30;
+}
+.fs14 {
+	font-size:14px;
+}
+.fs16 {
+	font-size:16px;
+}
+.fs18 {
+	font-size:18px;
+}
+.fs21 {
+	font-size:21px;
+}
+.fs24 {
+	font-size:24px;
+}
+.fs36 {
+	font-size:36px;
+}
+/*====================----------//////////
+	III :: Base || B :: webfonts --> font shortkuts
+\\\\\\\\\\----------====================*/
+body {
+	font-family:"FranklinGothicBook", Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#a1a1a4;
+	background:#ebebeb;
+	letter-spacing: 0.02em;
+	line-height: 1.4em;
+}
+a {
+	color:#e54e30;
+	text-decoration:none;
+}
+/*====================----------//////////
+	III :: Layout || A :: General
+\\\\\\\\\\----------====================*/
+.desktop960 {
+	width:960px;
+}
+.desktop100 {
+	width:100%;
+}
+/*====================----------//////////
+	III :: Layout || B :: Header
+\\\\\\\\\\----------====================*/
+/*====================----------//////////
+	III :: Layout || C :: Content
+\\\\\\\\\\----------====================*/
+/*====================----------//////////
+	III :: Layout || D :: Sidebar or other navigation
+\\\\\\\\\\----------====================*/
+/*====================----------//////////
+	II :: Layout || E :: Footer
+\\\\\\\\\\----------====================*/
+/*====================----------//////////
+	IV :: Modules
+\\\\\\\\\\----------====================*/
+.horlist {
+	/* use this with out clear:fix shortcut class ==> .cf */
+	list-style:none;
+}
+.horlist li,
+.column {
+	display:inline-block;
+	float:left;
+}
+.col-two .column {
+	width:50%;
+}
+.col-three .column {
+	width:33.3333333%;
+}
+.col-four .column {
+	width:25%;
+}
+/*====================----------//////////
+	V :: Theme || A :: General
+\\\\\\\\\\----------====================*/
+.bgblack {
+	background:#000000;
+	color:#FFF;
+}
+.bgwhite {
+	background:#FFF;
+	color:#000;
+}
+.bgorange {
+	background:#e54e30;
+	color:#FFF;
+}
+/*====================----------//////////
+	V :: Theme || B :: Shortkuts
+\\\\\\\\\\----------====================*/
+.ttnone {
+	text-transform:none;
+}
+.block {
+	display:block;
+}
+.inblock {
+	display:inline-block;
+}
+.relative {
+	position:relative;
+}
+.absolute {
+	position:absolute;
+}
+.ofhidden {
+	overflow:hidden;
+}
+.clear {
+	clear:both;
+}
+.p3020 {
+	padding:30px 20px;
+}
+.border-box {
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+.tacenter {
+	text-align:center;
+}
+.taright {
+	text-align:right;
+}
+.animate05s {
+	-webkit-transition:all 0.5s ease-in-out 0s;
+	-moz-transition:all 0.5s ease-in-out 0s;
+	-o-transition:all 0.5s ease-in-out 0s;
+	transition:all 0.5s ease-in-out 0s;
+	-webkit-transform: translate3d(0,0,0);
+}
+.animate1s {
+	-webkit-transition:all 1.0s ease-in-out 0s;
+	-moz-transition:all 1.0s ease-in-out 0s;
+	-o-transition:all 1.0s ease-in-out 0s;
+	transition:all 1.0s ease-in-out 0s;
+	-webkit-transform: translate3d(0,0,0);
+}
+img.w100 {
+	/* make an image will it's parent width */
+	height:auto;
+	width:100%;
+	display:block;
+}
+.hide-text {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.m0auto {
+	margin:0 auto;
+}
+.m20auto {
+	margin:20px auto;
+}
+.m0auto20 {
+	margin:0 auto 20px;
+}
+.vamiddle {
+	vertical-align:middle;
+}
+.va20 {
+	height:20px;
+	line-height:20px;
+}
+.pt5 {
+	padding-top:5px;
+}
+.pr5 {
+	padding-right:5px;
+}
+.pb5 {
+	padding-bottom:5px;
+}
+.pl5 {
+	padding-left:5px;
+}
+.pt10 {
+	padding-top:10px;
+}
+.pr10 {
+	padding-right:10px;
+}
+.pb10 {
+	padding-bottom:10px;
+}
+.pl10 {
+	padding-left:10px;
+}
+.pt15 {
+	padding-top:15px;
+}
+.pr15 {
+	padding-right:15px;
+}
+.pb15 {
+	padding-bottom:15px;
+}
+.pl15 {
+	padding-left:15px;
+}
+.p20 {
+	padding:20px;
+}
+.pt20 {
+	padding-top:20px;
+}
+.pr20 {
+	padding-right:20px;
+}
+.pb20 {
+	padding-bottom:20px;
+}
+.pl20 {
+	padding-left:20px;
+}
+.pt25 {
+	padding-top:25px;
+}
+.pr25 {
+	padding-right:25px;
+}
+.pb25 {
+	padding-bottom:25px;
+}
+.pl25 {
+	padding-left:25px;
+}
+.p30 {
+	padding:30px;
+}
+.pt30 {
+	padding-top:30px;
+}
+.pr30 {
+	padding-right:30px;
+}
+.pb30 {
+	padding-bottom:30px;
+}
+.pl30 {
+	padding-left:30px;
+}
+.pt50 {
+	padding-top:50px;
+}
+.pt75 {
+	padding-top:75px;
+}
+.pb120 {
+	padding-bottom:120px;
+}
+.pt120 {
+	padding-top:120px;
+}
+.mb20 {
+	margin-bottom:20px;
+}
+.mb120 {
+	margin-bottom:120px;
+}
+/*====================----------//////////
+	VI :: State Changes aka Media Queries
+\\\\\\\\\\----------====================*/
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+	/* Retina-specific stuff here */
+}
+@media only screen and (max-width : 960px) {
+}
+@media only screen and (max-width : 600px) {
+}
+@media only screen and (max-width : 480px) {
+}
+
+	]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>defCSS</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+	<!-- Optional: Description to show in the menu -->
+	<description>Default CSS Page</description>
+</snippet>

@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+	opacity: $1; /* 0.0 to 1.0 */
+   	filter: alpha(opacity=$1); /* IE8 and lower: 0 - 100 */
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>hello</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

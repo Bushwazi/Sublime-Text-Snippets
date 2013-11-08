@@ -1,0 +1,18 @@
+<snippet>
+  <content><![CDATA[
+(function(){
+  var Object_Name = {
+    init: function(){
+      console.log(this);
+    }
+  }
+  Object_Name.init();
+})();
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>defJS</tabTrigger> -->
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+    <!-- Optional: Description to show in the menu -->
+    <description>Default Javascript file</description>
+</snippet>

@@ -1,0 +1,83 @@
+http://substack.net/weaning_yourself_off_jquery
+
+INSTEAD OF:
+	var n = $("article#first p.summary");
+USE:
+	var n = document.querySelectorAll("article#first p.summary");
+OR EVEN FASTER VERSIONS:
+	1) document.querySelector(selector) — fetches the first matching node only
+	2) document.getElementById(idname) — fetches a single node by its ID name
+	3) document.getElementsByTagName(tagname) — fetches nodes matching an element (e.g. h1, p, strong, etc).
+	4) document.getElementsByClassName(class) — fetches nodes with a specific class name
+
+INSTEAD OF:
+	$(element).find('.bar')
+USE:
+	element.querySelector('.bar')
+
+INSTEAD OF:
+	$(element).attr(key, value)
+USE:
+	element.setAttribute(key, value)
+
+INSTEAD OF:
+	$(element).css(name, value)
+USE:
+	element.style[name] = value
+
+INSTEAD OF:
+	$(a).append(b)
+USE:
+	a.appendChild(b)
+
+INSTEAD OF:
+	$(a).prepend(b)
+USE:
+	a.insertBefore(b, a.childNodes[0])
+
+INSTEAD OF:
+	$("#container").append("<p>more content</p>");
+USE:
+	document.getElementById("container").innerHTML += "<p>more content</p>";
+OR EVEN SAFER (but rarely faster):
+	var p = document.createElement("p");
+	p.appendChild(document.createTextNode("more content");
+	document.getElementById("container").appendChild(p);
+
+INSTEAD OF:
+	$("#container").empty();
+USE:
+	document.getElementById("container").innerHTML = null;
+OR:
+	var c = document.getElementById("container");
+	while (c.lastChild){
+		c.removeChild(c.lastChild);
+	}
+
+INSTEAD OF:
+	$("#container").remove();
+USE:
+	var c = document.getElementById("container");
+	c.parentNode.removeChild(c);
+
+
+
+INSTEAD OF:
+	$(start) // for on load
+USE:
+	document.addEventListener("DOMContentLoaded", start);
+
+INSTEAD OF:
+	$("#clickme").on("click", function(e) {
+		console.log("you clicked " + e.target);
+		e.preventDefault();
+	});
+USE:
+	document.getElementById("clickme").addEventListener("click", function(e) {
+		console.log("you clicked " + e.target);
+		e.preventDefault();
+	});
+	and this is for old IE8
+	document.getElementById("clickme").onclick = runSomething;
+	IE9+ > element.addEventListener('click', fn)
+	IE8 > element.attachEvent('onclick', fn)

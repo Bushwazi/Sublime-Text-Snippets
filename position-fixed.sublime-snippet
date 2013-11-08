@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+position:fixed;
+-webkit-transform: translateZ(0);
+/* This will make it a layer instead of constantly being painted */
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>posFixed</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
